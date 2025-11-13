@@ -14,4 +14,4 @@ The 'local' folder should be used for user-specific or protected configuration (
 
 The 'base' folder contains shared configuration, such as non-sensitive and project-related settings that can be shared across team members.
 
-WARNING: Please do not place access credentials in the base configuration folder.
+ > *WARNING:* Please do not place access credentials in the base configuration folder.
