@@ -1,4 +1,4 @@
-# Restaurant Pipeline# Restaurant Data Pipeline
+## Restaurant Pipeline # Restaurant Data Pipeline
 
 
 
@@ -6,7 +6,7 @@ A production-grade **Kedro-based data pipeline** that ingests restaurant data fr
 
 
 
-## Overview## Overview
+## Overview # Overview
 
 
 This pipeline showcases best practices for: The pipeline receives raw data from two CSV files ('raw_customers.csv' and 'raw_orders.csv') as well as Azure Blob Storage (a JSONL file containing support tickets).  It then cleans and transforms the data to create two final datasets: one with the average order value and one with the number of tickets per order.  The pipeline follows the bronze-silver-gold architecture:
@@ -129,61 +129,6 @@ To run this pipeline, you need to have Python 3.10+ and `pip` installed.
 
 ### Directory Structure    The final output will be in the `data/gold` directory. You will find two files: `average_order_value.csv` and `tickets_per_order.csv`.
 
-##  Final Project Structure
-```
-restaurant-pipeline/
-├── README.md                           # This file
-├── pyproject.toml                      # Project metadata & dependencies
-├── requirements.txt                    # Python packages
-├── pytest.ini                          # Pytest configuration
-│
-├── conf/                               # Configuration (non-code)
-│   ├── base/
-│   │   ├── catalog.yml                 # Data sources & outputs
-│   │   └── parameters.yml              # Pipeline parameters
-│   └── local/
-│       └── credentials.yml             # Local secrets (git-ignored)
-│
-├── data/                               # Data directory
-│   ├── bronze/                         # Raw data (ingestion sources)
-│   │   ├── raw_customers.csv
-│   │   ├── raw_orders.csv
-│   │   ├── raw_products.csv
-│   │   └── raw_items.csv
-│   ├── silver/                         # Cleaned data (intermediates)
-│   │   ├── cleaned_customers.parquet
-│   │   ├── cleaned_orders.parquet
-│   │   └── cleaned_tickets.parquet
-│   └── gold/                           # Analytics output (final)
-│       ├── average_order_value.csv
-│       ├── tickets_per_order.csv
-│       └── total_revenue.csv
-│
-├── src/restaurant_pipeline/            # Main source code
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── pipeline_registry.py            # Kedro pipeline registry
-│   ├── settings.py                     # Kedro configuration
-│   └── pipelines/
-│       ├── data_processing/            # Bronze → Silver layer
-│       │   ├── __init__.py
-│       │   ├── nodes.py               # clean_customers, clean_orders, clean_tickets
-│       │   └── pipeline.py            # Data processing DAG
-│       └── reporting/                 # Silver → Gold layer
-│           ├── __init__.py
-│           ├── nodes.py               # Average value, tickets/order, revenue
-│           └── pipeline.py            # Reporting DAG
-│
-├── tests/                              # Unit & integration tests
-│   ├── conftest.py                    # Pytest fixtures & setup
-│   ├── pipelines/
-│   │   ├── test_data_processing.py    # Test data_processing nodes
-│   │   └── test_reporting.py          # Test reporting nodes
-│   └── ...
-│
-└── docs/                               # Documentation
-    └── ARCHITECTURE.md                 # Extended design docs
-```
 
 ---
 
@@ -248,8 +193,8 @@ pytest --cov=src/restaurant_pipeline tests/  # with coverage
 
 ### Local CSV Files (Bronze Layer)
 
-| File | Rows | Purpose |
-|------|------|---------|
+| File | Rows |
+|------|------|
 | `raw_customers.csv` | Customer master data |
 | `raw_orders.csv` | Transaction records |
 | `raw_products.csv` | Product catalog |
@@ -378,5 +323,61 @@ tests/
 pytest  # All tests
 pytest tests/pipelines/test_data_processing.py -v  # Specific module, verbose
 pytest --cov=src/restaurant_pipeline tests/  # With coverage report
+```
+---
+##  Final Project Structure
+```
+restaurant-pipeline/
+├── README.md                           # This file
+├── pyproject.toml                      # Project metadata & dependencies
+├── requirements.txt                    # Python packages
+├── pytest.ini                          # Pytest configuration
+│
+├── conf/                               # Configuration (non-code)
+│   ├── base/
+│   │   ├── catalog.yml                 # Data sources & outputs
+│   │   └── parameters.yml              # Pipeline parameters
+│   └── local/
+│       └── credentials.yml             # Local secrets (git-ignored)
+│
+├── data/                               # Data directory
+│   ├── bronze/                         # Raw data (ingestion sources)
+│   │   ├── raw_customers.csv
+│   │   ├── raw_orders.csv
+│   │   ├── raw_products.csv
+│   │   └── raw_items.csv
+│   ├── silver/                         # Cleaned data (intermediates)
+│   │   ├── cleaned_customers.parquet
+│   │   ├── cleaned_orders.parquet
+│   │   └── cleaned_tickets.parquet
+│   └── gold/                           # Analytics output (final)
+│       ├── average_order_value.csv
+│       ├── tickets_per_order.csv
+│       └── total_revenue.csv
+│
+├── src/restaurant_pipeline/            # Main source code
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── pipeline_registry.py            # Kedro pipeline registry
+│   ├── settings.py                     # Kedro configuration
+│   └── pipelines/
+│       ├── data_processing/            # Bronze → Silver layer
+│       │   ├── __init__.py
+│       │   ├── nodes.py               # clean_customers, clean_orders, clean_tickets
+│       │   └── pipeline.py            # Data processing DAG
+│       └── reporting/                 # Silver → Gold layer
+│           ├── __init__.py
+│           ├── nodes.py               # Average value, tickets/order, revenue
+│           └── pipeline.py            # Reporting DAG
+│
+├── tests/                              # Unit & integration tests
+│   ├── conftest.py                    # Pytest fixtures & setup
+│   ├── pipelines/
+│   │   ├── test_data_processing.py    # Test data_processing nodes
+│   │   └── test_reporting.py          # Test reporting nodes
+│   └── ...
+│
+└── docs/                               # Documentation
+    └── ARCHITECTURE.md                 # Extended design docs
 ```
 ---
