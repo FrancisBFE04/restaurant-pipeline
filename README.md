@@ -123,13 +123,13 @@ To run this pipeline, you need to have Python 3.10+ and `pip` installed.
 
 └─────────────────────────────────────────────────────────┘
 
-```
+
 6.  **Check the results:**
 
 ### Directory Structure    The final output will be in the `data/gold` directory. You will find two files: `average_order_value.csv` and `tickets_per_order.csv`.
 
 ---
-
+```
 ## Quick Start
 
 ### Prerequisites
