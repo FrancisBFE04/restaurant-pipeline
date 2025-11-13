@@ -2,14 +2,14 @@
 
 
 
-A production-grade **Kedro-based data pipeline** that ingests restaurant data from several sources (local CSVs + Azure Blob Storage), cleans and transforms it using a bronze-silver-gold layered architecture, and generates business analytics models. This project demonstrates a data pipeline for a restaurant that was constructed using [Kedro](https://kedro.org/).
+A production-grade **Kedro-based data pipeline** that ingests restaurant data from several sources (local CSVs + Azure Blob Storage), cleans and transforms it using a bronze-silver-gold layered architecture, and generates business analytics models. This project demonstrates a data pipeline for a restaurant, constructed using [Kedro](https://kedro.org/).
 
 
 
 ## Overview 
 
 
-This pipeline showcases best practices for: The pipeline receives raw data from two CSV files ('raw_customers.csv' and 'raw_orders.csv') as well as Azure Blob Storage (a JSONL file containing support tickets).  It then cleans and transforms the data to create two final datasets: one with the average order value and one with the number of tickets per order.  The pipeline follows the bronze-silver-gold architecture:
+This pipeline showcases best practices for: The pipeline receives raw data from two CSV files ('raw_customers.csv' and 'raw_orders.csv') as well as Azure Blob Storage (a JSONL file containing support tickets). It then cleans and transforms the data to create two final datasets: one with the average order value and one with the number of tickets per order.  The pipeline follows the bronze-silver-gold architecture:
 
 - **Multi-source data ingestion** (local files + cloud blob storage)
 
@@ -122,14 +122,14 @@ To run this pipeline, you need to have Python 3.10+ and `pip` installed.
 │                                                         │    ```
 
 └─────────────────────────────────────────────────────────┘
-
+```
 
 6.  **Check the results:**
 
 ### Directory Structure    The final output will be in the `data/gold` directory. You will find two files: `average_order_value.csv` and `tickets_per_order.csv`.
 
 ---
-```
+
 ## Quick Start
 
 ### Prerequisites
@@ -368,7 +368,7 @@ restaurant-pipeline/
 │           ├── nodes.py               # Average value, tickets/order, revenue
 │           └── pipeline.py            # Reporting DAG
 │
-├── tests/                              # Unit & integration tests
+└── tests/                              # Unit & integration tests
     ├── conftest.py                    # Pytest fixtures & setup
     ├── pipelines/
     │   ├── test_data_processing.py    # Test data_processing nodes
