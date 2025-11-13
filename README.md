@@ -1,4 +1,4 @@
-## Restaurant Pipeline # Restaurant Data Pipeline
+## Restaurant Pipeline 
 
 
 
@@ -6,7 +6,7 @@ A production-grade **Kedro-based data pipeline** that ingests restaurant data fr
 
 
 
-## Overview # Overview
+## Overview 
 
 
 This pipeline showcases best practices for: The pipeline receives raw data from two CSV files ('raw_customers.csv' and 'raw_orders.csv') as well as Azure Blob Storage (a JSONL file containing support tickets).  It then cleans and transforms the data to create two final datasets: one with the average order value and one with the number of tickets per order.  The pipeline follows the bronze-silver-gold architecture:
