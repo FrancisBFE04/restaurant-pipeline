@@ -1,0 +1,38 @@
+
+raw_customers:
+  type: pandas.CSVDataset
+  filepath: data/bronze/raw_customers.csv
+
+raw_orders:
+  type: pandas.CSVDataset
+  filepath: data/bronze/raw_orders.csv
+
+tickets_jsonl:
+  type: pandas.JSONDataset
+  filepath: https://jafshop.blob.core.windows.net/jafshop-tickets-jsonl/support_tickets.jsonl?sp=rl&st=2025-10-31T10:19:26Z&se=2025-11-15T18:34:26Z&sv=2024-11-04&sr=c&sig=EuOUuV8x5p6iSHZP3wDvbgw1tWHScn2eBLKdBDB0b0w%3D
+  load_args:
+    lines: True
+
+cleaned_customers:
+  type: pandas.ParquetDataset
+  filepath: data/silver/cleaned_customers.parquet
+
+cleaned_orders:
+  type: pandas.ParquetDataset
+  filepath: data/silver/cleaned_orders.parquet
+
+cleaned_tickets:
+  type: pandas.ParquetDataset
+  filepath: data/silver/cleaned_tickets.parquet
+
+average_order_value:
+    type: pandas.CSVDataset
+    filepath: data/gold/average_order_value.csv
+
+tickets_per_order:
+    type: pandas.CSVDataset
+    filepath: data/gold/tickets_per_order.csv
+
+total_revenue:
+    type: pandas.CSVDataset
+    filepath: data/gold/total_revenue.csv
