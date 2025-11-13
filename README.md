@@ -1,4 +1,4 @@
-## Restaurant Pipeline 
+## Restaurant Data Pipeline 
 
 
 
@@ -123,13 +123,12 @@ To run this pipeline, you need to have Python 3.10+ and `pip` installed.
 
 └─────────────────────────────────────────────────────────┘
 
-```6.  **Check the results:**
-
+```
+6.  **Check the results:**
 
 ### Directory Structure    The final output will be in the `data/gold` directory. You will find two files: `average_order_value.csv` and `tickets_per_order.csv`.
 
 ---
-
 
 ## Quick Start
 
@@ -370,13 +369,11 @@ restaurant-pipeline/
 │           └── pipeline.py            # Reporting DAG
 │
 ├── tests/                              # Unit & integration tests
-│   ├── conftest.py                    # Pytest fixtures & setup
-│   ├── pipelines/
-│   │   ├── test_data_processing.py    # Test data_processing nodes
-│   │   └── test_reporting.py          # Test reporting nodes
-│   └── ...
-│
-└── docs/                               # Documentation
-    └── ARCHITECTURE.md                 # Extended design docs
+    ├── conftest.py                    # Pytest fixtures & setup
+    ├── pipelines/
+    │   ├── test_data_processing.py    # Test data_processing nodes
+    │   └── test_reporting.py          # Test reporting nodes
+    └── ...
+
 ```
 ---
